@@ -1,102 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5ME6DH52KZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Single Post</title>
 
-  gtag('config', 'G-5ME6DH52KZ');
-</script>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+<style>
+body{
+    margin:0;
+    padding:20px;
+    background:#fff;
+    font-family:Arial,sans-serif;
+}
 
-    .image-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 420px;
-      height: 90vh;
-      overflow-y: scroll; /* Manual scroll */
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-      scrollbar-width: none; /* Hide scrollbar (Firefox) */
-      -ms-overflow-style: none; /* Hide scrollbar (IE) */
-      cursor: pointer;
-    }
+.post{
+    max-width:500px;
+    margin:auto;
+}
 
-    .image-wrapper::-webkit-scrollbar {
-      display: none; /* Hide scrollbar (Chrome, Safari) */
-    }
+.post img{
+    width:100%;
+    border-radius:12px;
+    display:block;
+}
 
-    img {
-      width: 100%;
-      display: block;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(1.03); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .redirect-msg {
-      position: absolute;
-      bottom: 10px;
-      left: 0;
-      width: 100%;
-      text-align: center;
-      font-family: sans-serif;
-      font-size: 14px;
-      color: #aaa;
-      opacity: 0.8;
-      background: rgba(0,0,0,0.4);
-      padding: 4px 0;
-    }
-  </style>
+.description{
+    margin-top:15px;
+    font-size:16px;
+    line-height:1.6;
+    color:#333;
+}
+</style>
 </head>
 <body>
 
-  <div class="image-wrapper" id="clickableImage">
-    <img src="images/photo.jpg" alt="Redirecting...">
-    <img src="images/photo2.jpg" alt="More content">
-    <img src="images/photo3.jpg" alt="More content">
-    <div class="redirect-msg">Scroll to view — Redirecting in 5s or tap image</div>
-  </div>
+<div class="post">
+    <img src="images/post.jpg" alt="Post Image">
 
-  <script>
-    const redirectURL = "https://www.effectivegatecpm.com/wer7mm6gmb?key=b9f9857b63f631e373a6fb9056f2711a";
-
-    function buildTarget() {
-      const p = new URLSearchParams(window.location.search);
-      const keep = ['fbclid','utm_source','utm_medium','utm_campaign','utm_term','utm_content','ref'];
-      const out = new URL(redirectURL, window.location.href);
-      keep.forEach(k => { if (p.get(k)) out.searchParams.set(k, p.get(k)); });
-      if (!out.searchParams.get('utm_source')) out.searchParams.set('utm_source', 'facebook');
-      return out.toString();
-    }
-
-    // Click redirect
-    document.getElementById('clickableImage').addEventListener('click', () => {
-      location.href = buildTarget();
-    });
-
-    // Auto redirect after 5 seconds
-    setTimeout(() => {
-      location.href = buildTarget();
-    }, 5000);
-  </script>
+    <div class="description">
+        <h2>Amazing Post</h2>
+        <p>
+            Welcome! This is a simple single post page.
+            Replace this text with your own description.
+        </p>
+    </div>
+</div>
 
 </body>
 </html>
